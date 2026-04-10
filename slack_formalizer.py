@@ -22,18 +22,34 @@ def formalize_message(casual_message: str) -> str:
 
 
 def run_eval(eval_cases: list[dict]) -> None:
-    """Runs the formalizer on a list of eval cases and prints results."""
-    print("=" * 60)
-    print("SLACK MESSAGE FORMALIZER — EVAL RUN")
-    print("=" * 60)
+    """Runs the formalizer on a list of eval cases, prints results, and saves to results.txt."""
+    header = "=" * 60
+    title = "SLACK MESSAGE FORMALIZER — EVAL RUN"
+
+    print(header)
+    print(title)
+    print(header)
+
+    lines = [header, title, header]
 
     for i, case in enumerate(eval_cases, 1):
-        print(f"\n[Case {i}]")
-        print(f"INPUT:    {case['input']}")
-        print(f"EXPECTED: {case['expected']}")
         output = formalize_message(case["input"])
-        print(f"OUTPUT:   {output}")
-        print("-" * 60)
+
+        case_lines = [
+            f"\n[Case {i}]",
+            f"INPUT:    {case['input']}",
+            f"EXPECTED: {case['expected']}",
+            f"OUTPUT:   {output}",
+            "-" * 60,
+        ]
+
+        for line in case_lines:
+            print(line)
+        lines.extend(case_lines)
+
+    with open("results.txt", "w") as f:
+        f.write("\n".join(lines) + "\n")
+    print("\nResults saved to results.txt")
 
 
 # Sample eval cases
