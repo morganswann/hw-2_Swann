@@ -1,0 +1,33 @@
+============================================================
+SLACK MESSAGE FORMALIZER — EVAL RUN
+============================================================
+
+[Case 1]
+INPUT:    hey can u send me that thing we talked abt asap
+EXPECTED: Hi, could you please send me the document we discussed at your earliest convenience? Thank you.
+OUTPUT:   Could you please send me the item we discussed at your earliest convenience?
+------------------------------------------------------------
+
+[Case 2]
+INPUT:    yo the meeting got moved to 3 fyi
+EXPECTED: Just a heads-up — the meeting has been rescheduled to 3:00 PM.
+OUTPUT:   The meeting has been rescheduled to 3:00 for your awareness.
+------------------------------------------------------------
+
+[Case 3]
+INPUT:    i think the client is kinda upset abt the delay lol
+EXPECTED: I believe the client may be concerned about the recent delay.
+OUTPUT:   I believe the client is somewhat frustrated about the delay.
+------------------------------------------------------------
+
+[Case 4]
+INPUT:    can someone pls fix the bug its been like forever
+EXPECTED: Could someone please look into resolving this bug? It has been outstanding for quite some time.
+OUTPUT:   Could someone please look into this bug? It has been outstanding for quite some time.
+------------------------------------------------------------
+
+[Case 5]
+INPUT:    btw i wont be in tmrw, just so u know
+EXPECTED: Just a quick note — I will not be available tomorrow.
+OUTPUT:   Just a heads-up — I won't be in tomorrow.
+------------------------------------------------------------
