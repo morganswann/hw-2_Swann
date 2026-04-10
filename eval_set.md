@@ -32,6 +32,36 @@
 
 ---
 
+## Case 5 — Normal Case
+
+**Input:** "hey can we move our 2pm tmrw? something came up"
+
+**Expected output:** "Would it be possible to reschedule our 2:00 PM meeting tomorrow? Something has come up on my end."
+
+**Note:** Good output should replace casual phrasing ("hey", "tmrw") with formal equivalents, preserve the reason given without elaborating on it, and not add a sign-off or apology not present in the original.
+
+---
+
+## Case 6 — Normal Case
+
+**Input:** "just finished the report fyi, its in the shared folder"
+
+**Expected output:** "Just a heads-up — the report has been completed and is available in the shared folder."
+
+**Note:** Good output should convert "fyi" and "just finished" into professional phrasing, preserve both pieces of information (completion and location), and not add extra context or a greeting.
+
+---
+
+## Case 7 — Normal Case
+
+**Input:** "hey can u take a look at my draft and let me know what u think"
+
+**Expected output:** "Could you please review my draft and share your feedback when you get a chance?"
+
+**Note:** Good output should formalize "take a look" and "let me know what u think" into professional equivalents, drop the casual opener, and not add urgency or a deadline not implied by the original.
+
+---
+
 ## Case 4 — Likely Failure Case (Sarcasm)
 
 **Input:** "oh great another meeting"
