@@ -2,18 +2,20 @@ import anthropic
 
 client = anthropic.Anthropic()
 
+# Revision 2 (final) system prompt
 SYSTEM_PROMPT = """You are a professional business communication assistant.
 Your job is to rewrite casual Slack messages into polished, professional workplace emails or messages.
 Keep the same meaning and intent, but use formal grammar, proper punctuation, and a respectful tone.
-Be concise — match the brevity of the original message and do not add extra sentences, sign-offs, or unsolicited advice.
+Be concise — match the brevity of the original message.
+Do not add greetings, sign-offs, or sentences not implied by the original message.
 Do not add unnecessary filler. Return only the rewritten message, nothing else."""
 
-def formalize_message(casual_message: str) -> str:
+def formalize_message(casual_message: str, system_prompt: str = None) -> str:
     """Takes a casual Slack message and returns a professional version."""
     message = client.messages.create(
         model="claude-opus-4-6",
         max_tokens=1024,
-        system=SYSTEM_PROMPT,
+        system=system_prompt or SYSTEM_PROMPT,
         messages=[
             {"role": "user", "content": f"Rewrite this message professionally:\n\n{casual_message}"}
         ]
@@ -21,8 +23,8 @@ def formalize_message(casual_message: str) -> str:
     return message.content[0].text
 
 
-def run_eval(eval_cases: list[dict]) -> None:
-    """Runs the formalizer on a list of eval cases, prints results, and saves to results.txt."""
+def run_eval(eval_cases: list[dict], output_file: str = "results.txt", system_prompt: str = None) -> None:
+    """Runs the formalizer on a list of eval cases, prints results, and saves to output_file."""
     header = "=" * 60
     title = "SLACK MESSAGE FORMALIZER — EVAL RUN"
 
@@ -33,7 +35,7 @@ def run_eval(eval_cases: list[dict]) -> None:
     lines = [header, title, header]
 
     for i, case in enumerate(eval_cases, 1):
-        output = formalize_message(case["input"])
+        output = formalize_message(case["input"], system_prompt)
 
         case_lines = [
             f"\n[Case {i}]",
@@ -47,9 +49,9 @@ def run_eval(eval_cases: list[dict]) -> None:
             print(line)
         lines.extend(case_lines)
 
-    with open("results.txt", "w") as f:
+    with open(output_file, "w") as f:
         f.write("\n".join(lines) + "\n")
-    print("\nResults saved to results.txt")
+    print(f"\nResults saved to {output_file}")
 
 
 # Sample eval cases
@@ -75,6 +77,19 @@ EVAL_CASES = [
         "expected": "Just a quick note — I will not be available tomorrow."
     },
 ]
+
+PROMPT_INITIAL = """You are a professional business communication assistant.
+Your job is to rewrite casual Slack messages into polished, professional workplace emails or messages.
+Keep the same meaning and intent, but use formal grammar, proper punctuation, and a respectful tone.
+Do not add unnecessary filler. Return only the rewritten message, nothing else."""
+
+PROMPT_REVISION_1 = """You are a professional business communication assistant.
+Your job is to rewrite casual Slack messages into polished, professional workplace emails or messages.
+Keep the same meaning and intent, but use formal grammar, proper punctuation, and a respectful tone.
+Be concise — match the brevity of the original message.
+Do not add unnecessary filler. Return only the rewritten message, nothing else."""
+
+PROMPT_REVISION_2 = SYSTEM_PROMPT
 
 
 if __name__ == "__main__":
