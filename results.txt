@@ -23,7 +23,7 @@ OUTPUT:   The project deadline has been moved to Friday, April 18th. Please plan
 [Case 4]
 INPUT:    hey can we move our 2pm tmrw? something came up
 EXPECTED: Would it be possible to reschedule our 2:00 PM meeting tomorrow? Something has come up on my end.
-OUTPUT:   Could we reschedule our 2:00 PM meeting tomorrow? An unexpected conflict has arisen.
+OUTPUT:   Could we reschedule our 2:00 PM meeting tomorrow? An unexpected conflict has come up.
 ------------------------------------------------------------
 
 [Case 5]
