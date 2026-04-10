@@ -54,27 +54,35 @@ def run_eval(eval_cases: list[dict], output_file: str = "results.txt", system_pr
     print(f"\nResults saved to {output_file}")
 
 
-# Sample eval cases
+# Eval cases (matches eval_set.md Cases 1–7)
 EVAL_CASES = [
-    {
+    {   # Case 1 — Normal
         "input": "hey can u send me that thing we talked abt asap",
-        "expected": "Hi, could you please send me the document we discussed at your earliest convenience? Thank you."
+        "expected": "Could you please send me the item we discussed at your earliest convenience?"
     },
-    {
+    {   # Case 2 — Normal
         "input": "yo the meeting got moved to 3 fyi",
         "expected": "Just a heads-up — the meeting has been rescheduled to 3:00 PM."
     },
-    {
-        "input": "i think the client is kinda upset abt the delay lol",
-        "expected": "I believe the client may be concerned about the recent delay."
+    {   # Case 3 — Edge Case (Already Professional)
+        "input": "Please be advised that the project deadline has been moved to Friday, April 18th. Kindly plan accordingly.",
+        "expected": "Please be advised that the project deadline has been moved to Friday, April 18th. Kindly plan accordingly."
     },
-    {
-        "input": "can someone pls fix the bug its been like forever",
-        "expected": "Could someone please look into resolving this bug? It has been outstanding for quite some time."
+    {   # Case 4 — Normal
+        "input": "hey can we move our 2pm tmrw? something came up",
+        "expected": "Would it be possible to reschedule our 2:00 PM meeting tomorrow? Something has come up on my end."
     },
-    {
-        "input": "btw i wont be in tmrw, just so u know",
-        "expected": "Just a quick note — I will not be available tomorrow."
+    {   # Case 5 — Normal
+        "input": "just finished the report fyi, its in the shared folder",
+        "expected": "Just a heads-up — the report has been completed and is available in the shared folder."
+    },
+    {   # Case 6 — Normal
+        "input": "hey can u take a look at my draft and let me know what u think",
+        "expected": "Could you please review my draft and share your feedback when you get a chance?"
+    },
+    {   # Case 7 — Likely Failure (Sarcasm)
+        "input": "oh great another meeting",
+        "expected": "I note that another meeting has been scheduled."
     },
 ]
 
