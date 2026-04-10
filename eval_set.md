@@ -22,7 +22,7 @@
 
 ---
 
-## Case 6 — Edge Case (Already Professional)
+## Case 3 — Edge Case (Already Professional)
 
 **Input:** "Please be advised that the project deadline has been moved to Friday, April 18th. Kindly plan accordingly."
 
@@ -32,7 +32,7 @@
 
 ---
 
-## Case 7 — Likely Failure Case (Sarcasm)
+## Case 4 — Likely Failure Case (Sarcasm)
 
 **Input:** "oh great another meeting"
 
