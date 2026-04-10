@@ -32,7 +32,7 @@
 
 ---
 
-## Case 5 — Normal Case
+## Case 4 — Normal Case
 
 **Input:** "hey can we move our 2pm tmrw? something came up"
 
@@ -42,7 +42,7 @@
 
 ---
 
-## Case 6 — Normal Case
+## Case 5 — Normal Case
 
 **Input:** "just finished the report fyi, its in the shared folder"
 
@@ -52,7 +52,7 @@
 
 ---
 
-## Case 7 — Normal Case
+## Case 6 — Normal Case
 
 **Input:** "hey can u take a look at my draft and let me know what u think"
 
@@ -62,7 +62,7 @@
 
 ---
 
-## Case 4 — Likely Failure Case (Sarcasm)
+## Case 7 — Likely Failure Case (Sarcasm)
 
 **Input:** "oh great another meeting"
 
