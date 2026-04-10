@@ -22,6 +22,10 @@ python3 slack_formalizer.py
 
 Runs a built-in eval suite followed by an interactive mode where you can type any casual message and receive a formalized version.
 
+## Walkthrough Video
+
+https://youtu.be/-rOw2BO3D7I
+
 ## Requirements
 
 - Python 3
